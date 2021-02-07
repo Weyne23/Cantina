@@ -45,7 +45,7 @@ namespace Cantina
                     MessageBox.Show("Produto Adicionado", "Adicionar");
                     context.Add(prod);
                     context.SaveChanges();
-                    tabela_quentinha.Rows.Add(prod.Nome, prod.Valor.ToString());
+                    lv_quentinhas.Items.Add(prod.Nome).SubItems.Add(prod.Valor.ToString("C2"));
                 }
             }
 
@@ -63,7 +63,36 @@ namespace Cantina
                 var quentinhas = ctx.Produtos.ToList();
 
                 foreach (var x in quentinhas)
-                    tabela_quentinha.Rows.Add(x.Nome, x.Valor);
+                    lv_quentinhas.Items.Add(x.Nome).SubItems.Add(x.Valor.ToString("C2"));
+            }
+        }
+
+        private void btn_adicionar_Click_1(object sender, EventArgs e)
+        {
+            if (lv_quentinhas.SelectedItems == null)
+            {
+                MessageBox.Show("Para excluir escolha uma das opções na lista de quentinhas e clique em excluir!", "Erro");
+                return;
+            }
+            else
+            {
+                using (var ctx = new ApplicationDBContext())
+                {
+                    var quentinhas = ctx.Produtos.ToList();
+
+                    foreach (var x in quentinhas)
+                    {
+                        if(x.Nome == lv_quentinhas.SelectedItems[0].Text)
+                        {
+                            ctx.Remove(x);
+                            ctx.SaveChanges();
+                            MessageBox.Show("Quentinha foi excluida!", "Excluido");
+                            lv_quentinhas.Items.Clear();
+                            Carregar_Quentinhas();
+                            return;
+                        }
+                    }      
+                }
             }
         }
     }

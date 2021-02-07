@@ -45,7 +45,7 @@ namespace Cantina
             }
             catch (Exception)
             {
-                MessageBox.Show("Nenhum item selecionado!", "Erro");
+                MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
                 return;
             }
         }

@@ -33,7 +33,6 @@ namespace Cantina
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.cb_entrega = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lb_quentinhas = new System.Windows.Forms.ListBox();
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -49,6 +48,8 @@ namespace Cantina
             this.sqLiteCommand1 = new System.Data.SQLite.SQLiteCommand();
             this.tb_observacoes = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tb_endereco = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,25 +72,15 @@ namespace Cantina
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 55);
+            this.label2.Location = new System.Drawing.Point(15, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Quentinhas";
             // 
-            // cb_entrega
-            // 
-            this.cb_entrega.AutoSize = true;
-            this.cb_entrega.Location = new System.Drawing.Point(12, 413);
-            this.cb_entrega.Name = "cb_entrega";
-            this.cb_entrega.Size = new System.Drawing.Size(91, 17);
-            this.cb_entrega.TabIndex = 6;
-            this.cb_entrega.Text = "Para Entreta?";
-            this.cb_entrega.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 436);
+            this.button1.Location = new System.Drawing.Point(15, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(340, 23);
             this.button1.TabIndex = 7;
@@ -103,14 +94,14 @@ namespace Cantina
             "Strogonofe",
             "Carne na panela",
             "Camarão"});
-            this.lb_quentinhas.Location = new System.Drawing.Point(12, 71);
+            this.lb_quentinhas.Location = new System.Drawing.Point(15, 112);
             this.lb_quentinhas.Name = "lb_quentinhas";
             this.lb_quentinhas.Size = new System.Drawing.Size(185, 95);
             this.lb_quentinhas.TabIndex = 8;
             // 
             // numericUpDown
             // 
-            this.numericUpDown.Location = new System.Drawing.Point(203, 71);
+            this.numericUpDown.Location = new System.Drawing.Point(206, 112);
             this.numericUpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -128,7 +119,7 @@ namespace Cantina
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 194);
+            this.label3.Location = new System.Drawing.Point(15, 235);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 11;
@@ -137,7 +128,7 @@ namespace Cantina
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(200, 55);
+            this.label4.Location = new System.Drawing.Point(203, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 13);
             this.label4.TabIndex = 12;
@@ -146,7 +137,7 @@ namespace Cantina
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 169);
+            this.label5.Location = new System.Drawing.Point(12, 210);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(353, 13);
             this.label5.TabIndex = 13;
@@ -154,7 +145,7 @@ namespace Cantina
             // 
             // btn_adicionar
             // 
-            this.btn_adicionar.Location = new System.Drawing.Point(203, 98);
+            this.btn_adicionar.Location = new System.Drawing.Point(206, 139);
             this.btn_adicionar.Name = "btn_adicionar";
             this.btn_adicionar.Size = new System.Drawing.Size(149, 23);
             this.btn_adicionar.TabIndex = 14;
@@ -170,7 +161,7 @@ namespace Cantina
             this.lv_itensPedido.FullRowSelect = true;
             this.lv_itensPedido.GridLines = true;
             this.lv_itensPedido.HideSelection = false;
-            this.lv_itensPedido.Location = new System.Drawing.Point(12, 210);
+            this.lv_itensPedido.Location = new System.Drawing.Point(15, 251);
             this.lv_itensPedido.MultiSelect = false;
             this.lv_itensPedido.Name = "lv_itensPedido";
             this.lv_itensPedido.Size = new System.Drawing.Size(185, 94);
@@ -190,7 +181,7 @@ namespace Cantina
             // 
             // btn_remover
             // 
-            this.btn_remover.Location = new System.Drawing.Point(203, 210);
+            this.btn_remover.Location = new System.Drawing.Point(206, 251);
             this.btn_remover.Name = "btn_remover";
             this.btn_remover.Size = new System.Drawing.Size(149, 27);
             this.btn_remover.TabIndex = 19;
@@ -201,7 +192,7 @@ namespace Cantina
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(203, 191);
+            this.label7.Location = new System.Drawing.Point(206, 232);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(122, 13);
             this.label7.TabIndex = 20;
@@ -213,7 +204,7 @@ namespace Cantina
             // 
             // tb_observacoes
             // 
-            this.tb_observacoes.Location = new System.Drawing.Point(12, 328);
+            this.tb_observacoes.Location = new System.Drawing.Point(15, 369);
             this.tb_observacoes.Multiline = true;
             this.tb_observacoes.Name = "tb_observacoes";
             this.tb_observacoes.Size = new System.Drawing.Size(340, 79);
@@ -222,17 +213,35 @@ namespace Cantina
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 309);
+            this.label8.Location = new System.Drawing.Point(18, 350);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(70, 13);
             this.label8.TabIndex = 24;
             this.label8.Text = "Observações";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(276, 13);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Endereço (Caso não seja para entrega deixar em branco)";
+            // 
+            // tb_endereco
+            // 
+            this.tb_endereco.Location = new System.Drawing.Point(12, 67);
+            this.tb_endereco.Name = "tb_endereco";
+            this.tb_endereco.Size = new System.Drawing.Size(340, 20);
+            this.tb_endereco.TabIndex = 26;
+            // 
             // F_AdicionarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(364, 466);
+            this.ClientSize = new System.Drawing.Size(364, 499);
+            this.Controls.Add(this.tb_endereco);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.tb_observacoes);
             this.Controls.Add(this.label7);
@@ -245,7 +254,6 @@ namespace Cantina
             this.Controls.Add(this.numericUpDown);
             this.Controls.Add(this.lb_quentinhas);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.cb_entrega);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
@@ -264,7 +272,6 @@ namespace Cantina
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox cb_entrega;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lb_quentinhas;
         private System.Windows.Forms.NumericUpDown numericUpDown;
@@ -280,5 +287,7 @@ namespace Cantina
         private System.Data.SQLite.SQLiteCommand sqLiteCommand1;
         private System.Windows.Forms.TextBox tb_observacoes;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox tb_endereco;
     }
 }
