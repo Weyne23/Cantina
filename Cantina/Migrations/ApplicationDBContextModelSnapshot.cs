@@ -28,13 +28,7 @@ namespace Cantina.Migrations
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PedId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PedId")
-                        .IsUnique()
-                        .HasFilter("[PedId] IS NOT NULL");
 
                     b.ToTable("Clientes");
                 });
@@ -44,9 +38,42 @@ namespace Cantina.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("CliId");
+
+                    b.Property<bool>("Delivery");
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("Finalizado");
+
+                    b.Property<int?>("ProdId");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("CliId");
+
+                    b.HasIndex("ProdId");
+
                     b.ToTable("Pedidos");
+                });
+
+            modelBuilder.Entity("Cantina.Pedido_Produto", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("PedidoId");
+
+                    b.Property<int?>("ProdutoId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PedidoId");
+
+                    b.HasIndex("ProdutoId");
+
+                    b.ToTable("Produtos_Produto");
                 });
 
             modelBuilder.Entity("Cantina.Produto", b =>
@@ -54,32 +81,39 @@ namespace Cantina.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(200);
+
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PedidoId");
-
-                    b.Property<decimal>("Valor");
+                    b.Property<double>("Valor");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("PedidoId");
 
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("Cantina.Cliente", b =>
+            modelBuilder.Entity("Cantina.Pedido", b =>
                 {
-                    b.HasOne("Cantina.Pedido", "Ped")
-                        .WithOne("Cli")
-                        .HasForeignKey("Cantina.Cliente", "PedId");
+                    b.HasOne("Cantina.Cliente", "Cli")
+                        .WithMany()
+                        .HasForeignKey("CliId");
+
+                    b.HasOne("Cantina.Produto", "Prod")
+                        .WithMany()
+                        .HasForeignKey("ProdId");
                 });
 
-            modelBuilder.Entity("Cantina.Produto", b =>
+            modelBuilder.Entity("Cantina.Pedido_Produto", b =>
                 {
-                    b.HasOne("Cantina.Pedido")
-                        .WithMany("Prod")
+                    b.HasOne("Cantina.Pedido", "Pedido")
+                        .WithMany()
                         .HasForeignKey("PedidoId");
+
+                    b.HasOne("Cantina.Produto", "Produto")
+                        .WithMany()
+                        .HasForeignKey("ProdutoId");
                 });
 #pragma warning restore 612, 618
         }

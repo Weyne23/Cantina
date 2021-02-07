@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WF_Aluno_EFCore.Models;
 
 namespace Cantina
 {
@@ -16,6 +17,20 @@ namespace Cantina
         public F_AdicionarPedido()
         {
             InitializeComponent();
+            ExibirProdutos();
+        }
+
+        private void ExibirProdutos()
+        {
+            List<Produto> produtos;
+            lb_quentinhas.Items.Clear();
+
+            using (var ctx = new ApplicationDBContext())
+            {
+                produtos = ctx.Produtos.ToList();
+            }
+            foreach (var produto in produtos)
+                lb_quentinhas.Items.Add(produto.Nome);
         }
 
         private void bet_remover_Click(object sender, EventArgs e)
@@ -35,14 +50,20 @@ namespace Cantina
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btn_adicionar_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void F_AdicionarPedido_Load(object sender, EventArgs e)
-        {
-           
+            if(lb_quentinhas.SelectedItem == null)
+            {
+                MessageBox.Show("Nenhum item selecionado!", "Erro");
+                return;
+            }
+            else
+            {
+                ListViewItem lvi = new ListViewItem(lb_quentinhas.SelectedItem.ToString());
+                lvi.SubItems.Add(numericUpDown.Value.ToString());
+                lv_itensPedido.Items.Add(lvi);
+                numericUpDown.Value = 1;
+            }
         }
     }
 }

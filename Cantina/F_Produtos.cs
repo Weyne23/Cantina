@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WF_Aluno_EFCore.Models;
 
 namespace Cantina
 {
@@ -17,9 +18,35 @@ namespace Cantina
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_adicionar_Click(object sender, EventArgs e)
         {
-            Produto produtos = new Produto(tb_nomeProduto.Text, nup_valor.DecimalPlaces);
+            if (tb_descricao.Text == "" || tb_nomeProduto.Text == "")
+            {
+                MessageBox.Show("Nenhum item selecionado!", "Erro");
+                return;
+            }
+            else
+            {
+                using (var context = new ApplicationDBContext())
+                {
+                    var produto = context.Produtos;
+                    foreach (var p in produto)
+                    {
+                        if(p.Nome.ToLower() == tb_nomeProduto.Text.ToLower())
+                        {
+                            MessageBox.Show("Produto Já Adicionado!", "Adicionar");
+                            return;
+                        }
+                    }
+                    Produto prod = new Produto();
+                    prod.Nome = tb_nomeProduto.Text;
+                    prod.Valor = Convert.ToDouble(nud_valor.Value);
+                    prod.Descricao = tb_descricao.Text;
+                    MessageBox.Show("Produto Adicionado", "Adicionar");
+                    context.Add(produto);
+                    context.SaveChanges();
+                }
+            }
 
         }
     }
