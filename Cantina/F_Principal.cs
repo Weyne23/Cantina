@@ -87,7 +87,6 @@ namespace Cantina
 
         private void btn_detalhes_Click(object sender, EventArgs e)
         {
-
             F_DetalhesDoPedido f_DetalhesDoPedido = new F_DetalhesDoPedido();
             f_DetalhesDoPedido.ShowDialog();
         }
