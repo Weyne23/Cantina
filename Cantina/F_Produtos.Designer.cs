@@ -32,7 +32,7 @@ namespace Cantina
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Produtos));
             this.label1 = new System.Windows.Forms.Label();
             this.tb_nomeProduto = new System.Windows.Forms.TextBox();
-            this.btn_adicionar = new System.Windows.Forms.Button();
+            this.btn_remover = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_descricao = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -62,15 +62,15 @@ namespace Cantina
             this.tb_nomeProduto.Size = new System.Drawing.Size(250, 20);
             this.tb_nomeProduto.TabIndex = 2;
             // 
-            // btn_adicionar
+            // btn_remover
             // 
-            this.btn_adicionar.Location = new System.Drawing.Point(12, 350);
-            this.btn_adicionar.Name = "btn_adicionar";
-            this.btn_adicionar.Size = new System.Drawing.Size(325, 23);
-            this.btn_adicionar.TabIndex = 4;
-            this.btn_adicionar.Text = "Remover";
-            this.btn_adicionar.UseVisualStyleBackColor = true;
-            this.btn_adicionar.Click += new System.EventHandler(this.btn_adicionar_Click_1);
+            this.btn_remover.Location = new System.Drawing.Point(12, 350);
+            this.btn_remover.Name = "btn_remover";
+            this.btn_remover.Size = new System.Drawing.Size(325, 23);
+            this.btn_remover.TabIndex = 4;
+            this.btn_remover.Text = "Remover";
+            this.btn_remover.UseVisualStyleBackColor = true;
+            this.btn_remover.Click += new System.EventHandler(this.btn_remover_Click);
             // 
             // label2
             // 
@@ -173,10 +173,11 @@ namespace Cantina
             this.Controls.Add(this.tb_descricao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_adicionar);
+            this.Controls.Add(this.btn_remover);
             this.Controls.Add(this.tb_nomeProduto);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "F_Produtos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
@@ -191,7 +192,7 @@ namespace Cantina
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tb_nomeProduto;
-        private System.Windows.Forms.Button btn_adicionar;
+        private System.Windows.Forms.Button btn_remover;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_descricao;
         private System.Windows.Forms.Label label3;

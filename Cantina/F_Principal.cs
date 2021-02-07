@@ -34,28 +34,34 @@ namespace Cantina
         private void exibirPedidos()
         {
             lv_pedidos.Items.Clear();
-            double valor = 0;
+           // double valor2 = 0; double valor = 0;
             using (var ctx = new ApplicationDBContext())
             {
-
-               var pedidos = (from p in ctx.Pedidos
-                               join c in ctx.Clientes on p.Cliente.Id equals c.Id
-                               join prod in ctx.Produtos on p.Produto.ProdutoId equals prod.ProdutoId
+                int x = -1;
+                var pedidos = (from p in ctx.Pedidos
+                               join ip in ctx.ItemPedidos on p.PedidoId equals ip.PedidoId
+                               //join prod in ctx.Produtos on ip.ProdutoID equals prod.ProdutoId
                                select new
                                {
                                    idPedido = p.PedidoId,
-                                   nomeCliente = c.Nome,
-                                   delivery = c.Endereco == "" ? "Não" : "Sim",
-                                   nomeProduto = prod.Nome,
-                               }).ToList();
+                                   nomeCliente = p.Cliente.Nome,
+                                   delivery = p.Cliente.Endereco == "" ? "Não" : "Sim",
+                                   //quantidade = ip.Quantidade,
+                                   valorTotal = p.ValorTotal,
+                                   valorUni = ip.valorUnitario,
+                               });
                 foreach (var p in pedidos)
                 {
-                    ListViewItem lvi = new ListViewItem(p.idPedido.ToString());
-                    lvi.SubItems.Add(p.nomeCliente);
-                    lvi.SubItems.Add(p.delivery.ToString());
-
-                    lvi.SubItems.Add(valor.ToString("C2"));
-                    lv_pedidos.Items.Add(lvi);
+                    if (p.idPedido != x)
+                    {
+                        ListViewItem lvi = new ListViewItem(p.idPedido.ToString());
+                        lvi.SubItems.Add(p.nomeCliente);
+                        lvi.SubItems.Add(p.delivery.ToString());
+                        //valor += p.valorUni * p.quantidade;
+                        lvi.SubItems.Add(p.valorTotal.ToString("C2"));
+                        lv_pedidos.Items.Add(lvi);
+                    }
+                    x = p.idPedido;
                 }
             }
         }

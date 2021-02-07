@@ -15,7 +15,7 @@ namespace Cantina
         [StringLength(200)]
         public string Descricao { get; set; }
         public double Valor { get; set; }
-        public virtual List<Pedido> Pedidos { get; set; }
+        public virtual List<ItemPedido> ItensPedido { get; set; }
 
     }
 }

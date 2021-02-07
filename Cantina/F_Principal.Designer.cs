@@ -51,6 +51,7 @@ namespace Cantina
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lv_pedidos = new System.Windows.Forms.ListView();
+            this.cl_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_cliente = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_delivery = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cl_valor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,7 +61,6 @@ namespace Cantina
             this.button1 = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btn_detalhes = new System.Windows.Forms.Button();
-            this.cl_id = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +118,11 @@ namespace Cantina
             this.lv_pedidos.TabIndex = 1;
             this.lv_pedidos.UseCompatibleStateImageBehavior = false;
             this.lv_pedidos.View = System.Windows.Forms.View.Details;
+            // 
+            // cl_id
+            // 
+            this.cl_id.Text = "Num. do Pedido";
+            this.cl_id.Width = 93;
             // 
             // cl_cliente
             // 
@@ -192,11 +197,6 @@ namespace Cantina
             this.btn_detalhes.UseVisualStyleBackColor = true;
             this.btn_detalhes.Click += new System.EventHandler(this.btn_detalhes_Click);
             // 
-            // cl_id
-            // 
-            this.cl_id.Text = "Num. do Pedido";
-            this.cl_id.Width = 93;
-            // 
             // F_Cantina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,6 +212,7 @@ namespace Cantina
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "F_Cantina";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pedidos";

@@ -6,10 +6,11 @@ namespace WF_Aluno_EFCore.Models
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-9FAFID2\\SQLEXPRESS;Initial Catalog=db_cantina_teste5;Integrated Security=True");
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-9FAFID2\\SQLEXPRESS;Initial Catalog=db_cantina_teste7;Integrated Security=True");
         }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public DbSet<ItemPedido> ItemPedidos { get; set; }
     }
 }

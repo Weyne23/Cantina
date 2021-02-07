@@ -29,12 +29,12 @@ namespace Cantina
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_AdicionarPedido));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tb_nomeCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lb_quentinhas = new System.Windows.Forms.ListBox();
+            this.btn_finalizarPedido = new System.Windows.Forms.Button();
             this.numericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +50,10 @@ namespace Cantina
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tb_endereco = new System.Windows.Forms.TextBox();
+            this.lb_quentinhas = new System.Windows.Forms.ListBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -62,12 +65,12 @@ namespace Cantina
             this.label1.TabIndex = 0;
             this.label1.Text = "Nome Cliente";
             // 
-            // textBox1
+            // tb_nomeCliente
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 24);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(340, 20);
-            this.textBox1.TabIndex = 2;
+            this.tb_nomeCliente.Location = new System.Drawing.Point(12, 24);
+            this.tb_nomeCliente.Name = "tb_nomeCliente";
+            this.tb_nomeCliente.Size = new System.Drawing.Size(340, 20);
+            this.tb_nomeCliente.TabIndex = 2;
             // 
             // label2
             // 
@@ -78,26 +81,15 @@ namespace Cantina
             this.label2.TabIndex = 3;
             this.label2.Text = "Quentinhas";
             // 
-            // button1
+            // btn_finalizarPedido
             // 
-            this.button1.Location = new System.Drawing.Point(15, 465);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(340, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Finalizar Pedido";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // lb_quentinhas
-            // 
-            this.lb_quentinhas.FormattingEnabled = true;
-            this.lb_quentinhas.Items.AddRange(new object[] {
-            "Strogonofe",
-            "Carne na panela",
-            "Camarão"});
-            this.lb_quentinhas.Location = new System.Drawing.Point(15, 112);
-            this.lb_quentinhas.Name = "lb_quentinhas";
-            this.lb_quentinhas.Size = new System.Drawing.Size(185, 95);
-            this.lb_quentinhas.TabIndex = 8;
+            this.btn_finalizarPedido.Location = new System.Drawing.Point(15, 465);
+            this.btn_finalizarPedido.Name = "btn_finalizarPedido";
+            this.btn_finalizarPedido.Size = new System.Drawing.Size(340, 23);
+            this.btn_finalizarPedido.TabIndex = 7;
+            this.btn_finalizarPedido.Text = "Finalizar Pedido";
+            this.btn_finalizarPedido.UseVisualStyleBackColor = true;
+            this.btn_finalizarPedido.Click += new System.EventHandler(this.btn_finalizarPedido_Click);
             // 
             // numericUpDown
             // 
@@ -235,11 +227,20 @@ namespace Cantina
             this.tb_endereco.Size = new System.Drawing.Size(340, 20);
             this.tb_endereco.TabIndex = 26;
             // 
+            // lb_quentinhas
+            // 
+            this.lb_quentinhas.FormattingEnabled = true;
+            this.lb_quentinhas.Location = new System.Drawing.Point(12, 112);
+            this.lb_quentinhas.Name = "lb_quentinhas";
+            this.lb_quentinhas.Size = new System.Drawing.Size(188, 95);
+            this.lb_quentinhas.TabIndex = 27;
+            // 
             // F_AdicionarPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 499);
+            this.Controls.Add(this.lb_quentinhas);
             this.Controls.Add(this.tb_endereco);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
@@ -252,16 +253,17 @@ namespace Cantina
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown);
-            this.Controls.Add(this.lb_quentinhas);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_finalizarPedido);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tb_nomeCliente);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "F_AdicionarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Pedido";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,10 +272,9 @@ namespace Cantina
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tb_nomeCliente;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox lb_quentinhas;
+        private System.Windows.Forms.Button btn_finalizarPedido;
         private System.Windows.Forms.NumericUpDown numericUpDown;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -289,5 +290,7 @@ namespace Cantina
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tb_endereco;
+        private System.Windows.Forms.ListBox lb_quentinhas;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

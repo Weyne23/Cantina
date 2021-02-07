@@ -11,9 +11,10 @@ using WF_Aluno_EFCore.Models;
 namespace Cantina.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210207152617_Migracao33")]
+    partial class Migracao33
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,10 +72,6 @@ namespace Cantina.Migrations
                         .HasMaxLength(200);
 
                     b.Property<bool>("Finalizado");
-
-                    b.Property<double>("ValorTotal");
-
-                    b.Property<bool>("Viagem");
 
                     b.HasKey("PedidoId");
 

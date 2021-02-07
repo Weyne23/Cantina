@@ -129,6 +129,7 @@ namespace Cantina
             this.Controls.Add(this.lb_numPedido);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "F_DetalhesDoPedido";
             this.Text = "Detalhes do pedido";
             this.ResumeLayout(false);

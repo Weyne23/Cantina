@@ -67,9 +67,43 @@ namespace Cantina
             }
         }
 
-        private void btn_adicionar_Click_1(object sender, EventArgs e)
+        private void btn_remover_Click(object sender, EventArgs e)
         {
-            if (lv_quentinhas.SelectedItems == null)
+            try
+            {
+                var resultado = MessageBox.Show("Deseja Remover esse produto do pedido?", "Excluir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    using (var ctx = new ApplicationDBContext())
+                    {
+                        var quentinhas = ctx.Produtos.ToList();
+
+                        foreach (var x in quentinhas)
+                        {
+                            if (x.Nome == lv_quentinhas.SelectedItems[0].Text)
+                            {
+                                ctx.Remove(x);
+                                ctx.SaveChanges();
+                                MessageBox.Show("Quentinha foi excluida!", "Excluido");
+                                lv_quentinhas.Items.Clear();
+                                Carregar_Quentinhas();
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
+                return;
+            }
+            
+        }
+    }
+}
+/**
+ * if (lv_quentinhas.SelectedItems == null)
             {
                 MessageBox.Show("Para excluir escolha uma das opções na lista de quentinhas e clique em excluir!", "Erro");
                 return;
@@ -82,7 +116,7 @@ namespace Cantina
 
                     foreach (var x in quentinhas)
                     {
-                        if(x.Nome == lv_quentinhas.SelectedItems[0].Text)
+                        if (x.Nome == lv_quentinhas.SelectedItems[0].Text)
                         {
                             ctx.Remove(x);
                             ctx.SaveChanges();
@@ -91,9 +125,7 @@ namespace Cantina
                             Carregar_Quentinhas();
                             return;
                         }
-                    }      
+                    }
                 }
             }
-        }
-    }
-}
+**/
