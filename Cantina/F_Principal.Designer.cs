@@ -58,7 +58,7 @@ namespace Cantina
             this.btn_adicionarPedido = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_rev = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_entregue = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btn_detalhes = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
@@ -172,14 +172,15 @@ namespace Cantina
             this.btn_rev.UseVisualStyleBackColor = true;
             this.btn_rev.Click += new System.EventHandler(this.btn_rev_Click);
             // 
-            // button1
+            // btn_entregue
             // 
-            this.button1.Location = new System.Drawing.Point(12, 413);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(334, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Pedido Entregue";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_entregue.Location = new System.Drawing.Point(12, 413);
+            this.btn_entregue.Name = "btn_entregue";
+            this.btn_entregue.Size = new System.Drawing.Size(334, 23);
+            this.btn_entregue.TabIndex = 11;
+            this.btn_entregue.Text = "Pedido Entregue";
+            this.btn_entregue.UseVisualStyleBackColor = true;
+            this.btn_entregue.Click += new System.EventHandler(this.btn_entregue_Click);
             // 
             // notifyIcon1
             // 
@@ -203,7 +204,7 @@ namespace Cantina
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(678, 452);
             this.Controls.Add(this.btn_detalhes);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_entregue);
             this.Controls.Add(this.btn_rev);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_adicionarPedido);
@@ -229,17 +230,17 @@ namespace Cantina
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem relatorioToolStripMenuItem;
-        private System.Windows.Forms.ListView lv_pedidos;
         private System.Windows.Forms.ColumnHeader cl_cliente;
         private System.Windows.Forms.ColumnHeader cl_delivery;
         private System.Windows.Forms.Button btn_adicionarPedido;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ColumnHeader cl_valor;
         private System.Windows.Forms.Button btn_rev;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_entregue;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button btn_detalhes;
         private System.Windows.Forms.ColumnHeader cl_id;
+        public System.Windows.Forms.ListView lv_pedidos;
     }
 }
 

@@ -72,10 +72,18 @@ namespace Cantina
         {
             try
             {
-                var resultado = MessageBox.Show("Deseja Remover esse pedido?", "Excluir", MessageBoxButtons.YesNo);
-                if (resultado == DialogResult.Yes)
+                using (var ctx = new ApplicationDBContext())
                 {
-                    lv_pedidos.Items.RemoveAt(lv_pedidos.SelectedIndices[0]);
+                    var pedidos = ctx.Pedidos;
+                    foreach (var p in pedidos)
+                    {
+                        if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text))
+                        {
+                            ctx.Remove(p);
+                        }
+                    }
+                    exibirPedidos();
+                    ctx.SaveChanges();
                 }
             }
             catch (Exception)
@@ -96,5 +104,65 @@ namespace Cantina
             F_DetalhesDoPedido f_DetalhesDoPedido = new F_DetalhesDoPedido();
             f_DetalhesDoPedido.ShowDialog();
         }
+
+        private void btn_entregue_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var resultado = MessageBox.Show("Deseja Remover esse produto do pedido?", "Excluir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    using (var ctx = new ApplicationDBContext())
+                    {
+                        var pedidos = ctx.Pedidos;
+                        foreach (var p in pedidos)
+                        {
+                            if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text)) 
+                            {
+                                p.Finalizado = true;
+                                ctx.Remove(p);
+                            }
+                        }
+                        exibirPedidos();
+                        ctx.SaveChanges();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+               // MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
+                //return;
+            }
+        }
     }
 }
+
+/**
+ * try
+            {
+                var resultado = MessageBox.Show("Deseja Remover esse produto do pedido?", "Excluir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    Console.WriteLine("Aqui");
+                    using (var ctx = new ApplicationDBContext())
+                    {
+
+                        var Clientes = ctx.Clientes.ToList();
+                        foreach (var c in Clientes)
+                        {
+                            if (c.Nome == lv_pedidos.SelectedItems[0].SubItems[1].Text)
+                            {
+                                ctx.Remove(c);
+                                lv_pedidos.Items.RemoveAt(lv_pedidos.SelectedIndices[0]);
+                            }
+
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
+                return;
+            }
+**/

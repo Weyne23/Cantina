@@ -129,11 +129,11 @@ namespace Cantina
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(11, 375);
+            this.label5.Location = new System.Drawing.Point(10, 375);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(326, 12);
+            this.label5.Size = new System.Drawing.Size(334, 12);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Para remover uma quentinha clique em uma opção da list e clique em Remover";
+            this.label5.Text = "Para remover uma quentinha clique em uma opção da lista e depois em Remover";
             // 
             // lv_quentinhas
             // 

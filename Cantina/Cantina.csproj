@@ -319,6 +319,10 @@
     <Compile Include="Migrations\20210207165502_Migracao35.designer.cs">
       <DependentUpon>20210207165502_Migracao35.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210207224758_Migracao36.cs" />
+    <Compile Include="Migrations\20210207224758_Migracao36.designer.cs">
+      <DependentUpon>20210207224758_Migracao36.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Cliente.cs" />
