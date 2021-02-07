@@ -14,7 +14,6 @@ namespace Cantina
     public partial class F_DetalhesDoPedido : Form
     {
         F_Cantina f_Cantina;
-        string numeroPedido;
         public F_DetalhesDoPedido()
         {
             InitializeComponent();
@@ -27,11 +26,18 @@ namespace Cantina
             lb_numPedido.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text;
             using (var ctx = new ApplicationDBContext())
             {
-                var pedido = ctx.Pedidos.First(a => a.PedidoId == Convert.ToInt32(lb_numPedido.Text));
-                tb_nomeCliente.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[1].Text; ;
-                tb_horario.Text = pedido.DataCompra.ToString();
-                tb_observacoes.Text = pedido.Descricao;
-                lb_valorTotal.Text = pedido.ValorTotal.ToString();
+                var pedidos = ctx.Pedidos.Where(p => p.ClienteID == Convert.ToInt32(f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text));
+                foreach (var p in pedidos)
+                {
+                    Console.WriteLine(p.ValorTotal);
+                    tb_nomeCliente.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[1].Text;
+                    tb_horario.Text = p.DataCompra.ToString();
+                    tb_observacoes.Text = p.Descricao;
+                    lb_valorTotal.Text = p.ValorTotal.ToString("C2");
+                    //tb_endereco.Text = p.Cliente.Endereco;
+                }
+                //tb_observacoes.Text = pedido.Descricao;
+                
                 //tb_endereco.Text = pedido.Cliente.Endereco;
                 //tb_observacoes.Text = pedido.ItensPedido[0].Produto.Nome;
             }

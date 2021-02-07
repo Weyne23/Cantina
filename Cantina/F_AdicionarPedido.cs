@@ -92,7 +92,7 @@ namespace Cantina
                 Produto produto = new Produto();
                 List<Produto> produtos = new List<Produto>();
                 List<ItemPedido> itemPedidos = new List<ItemPedido>();
-                int y = 0, x = 0;
+                int y = 0;
                 double valor = 0;
                 produtos = ctx.Produtos.ToList();
                 cliente.Endereco = tb_endereco.Text;

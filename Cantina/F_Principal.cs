@@ -34,19 +34,17 @@ namespace Cantina
         private void exibirPedidos()
         {
             lv_pedidos.Items.Clear();
-           // double valor2 = 0; double valor = 0;
+            // double valor2 = 0; double valor = 0;
             using (var ctx = new ApplicationDBContext())
             {
                 int x = -1;
                 var pedidos = (from p in ctx.Pedidos
                                join ip in ctx.ItemPedidos on p.PedidoId equals ip.PedidoId
-                               //join prod in ctx.Produtos on ip.ProdutoID equals prod.ProdutoId
                                select new
                                {
                                    idPedido = p.PedidoId,
                                    nomeCliente = p.Cliente.Nome,
                                    delivery = p.Cliente.Endereco == "" ? "Não" : "Sim",
-                                   //quantidade = ip.Quantidade,
                                    valorTotal = p.ValorTotal,
                                    valorUni = ip.valorUnitario,
                                });
@@ -66,24 +64,28 @@ namespace Cantina
             }
         }
 
-       
+
 
         private void btn_rev_Click(object sender, EventArgs e)
         {
             try
             {
-                using (var ctx = new ApplicationDBContext())
+                var resultado = MessageBox.Show("Deseja Remover esse produto do pedido?", "Excluir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
                 {
-                    var pedidos = ctx.Pedidos;
-                    foreach (var p in pedidos)
+                    using (var ctx = new ApplicationDBContext())
                     {
-                        if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text))
+                        var pedidos = ctx.Pedidos;
+                        foreach (var p in pedidos)
                         {
-                            ctx.Remove(p);
+                            if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text))
+                            {
+                                ctx.Remove(p);
+                            }
                         }
+                        exibirPedidos();
+                        ctx.SaveChanges();
                     }
-                    exibirPedidos();
-                    ctx.SaveChanges();
                 }
             }
             catch (Exception)
@@ -117,7 +119,7 @@ namespace Cantina
                         var pedidos = ctx.Pedidos;
                         foreach (var p in pedidos)
                         {
-                            if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text)) 
+                            if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text))
                             {
                                 p.Finalizado = true;
                                 ctx.Remove(p);
@@ -130,8 +132,8 @@ namespace Cantina
             }
             catch (Exception)
             {
-               // MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
-                //return;
+                MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
+                return;
             }
         }
     }
