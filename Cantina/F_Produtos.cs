@@ -43,11 +43,28 @@ namespace Cantina
                     prod.Valor = Convert.ToDouble(nud_valor.Value);
                     prod.Descricao = tb_descricao.Text;
                     MessageBox.Show("Produto Adicionado", "Adicionar");
-                    context.Add(produto);
+                    context.Add(prod);
                     context.SaveChanges();
+                    tabela_quentinha.Rows.Add(prod.Nome, prod.Valor.ToString());
                 }
             }
 
+        }
+
+        private void F_Produtos_Load(object sender, EventArgs e)
+        {
+            Carregar_Quentinhas();
+        }
+
+        private void Carregar_Quentinhas()
+        {
+            using (var ctx = new ApplicationDBContext())
+            {
+                var quentinhas = ctx.Produtos.ToList();
+
+                foreach (var x in quentinhas)
+                    tabela_quentinha.Rows.Add(x.Nome, x.Valor);
+            }
         }
     }
 }

@@ -271,6 +271,30 @@
     <Compile Include="Migrations\20210206230357_Migracao22.designer.cs">
       <DependentUpon>20210206230357_Migracao22.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20210207025557_Migracao23.cs" />
+    <Compile Include="Migrations\20210207025557_Migracao23.designer.cs">
+      <DependentUpon>20210207025557_Migracao23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207041351_Migracao24.cs" />
+    <Compile Include="Migrations\20210207041351_Migracao24.designer.cs">
+      <DependentUpon>20210207041351_Migracao24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207041608_Migracao25.cs" />
+    <Compile Include="Migrations\20210207041608_Migracao25.designer.cs">
+      <DependentUpon>20210207041608_Migracao25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207042035_Migracao26.cs" />
+    <Compile Include="Migrations\20210207042035_Migracao26.designer.cs">
+      <DependentUpon>20210207042035_Migracao26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207043323_Migracao27.cs" />
+    <Compile Include="Migrations\20210207043323_Migracao27.designer.cs">
+      <DependentUpon>20210207043323_Migracao27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207050101_Migracao28.cs" />
+    <Compile Include="Migrations\20210207050101_Migracao28.designer.cs">
+      <DependentUpon>20210207050101_Migracao28.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -292,7 +316,6 @@
     <Compile Include="F_Produtos.Designer.cs">
       <DependentUpon>F_Produtos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Pedido_Produto.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Program.cs" />

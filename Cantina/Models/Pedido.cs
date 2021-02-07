@@ -9,13 +9,15 @@ namespace Cantina
 {
     public class Pedido
     {
-        public int Id { get; set; }
-        public virtual Cliente Cli { get; set; }
-        public bool Delivery { get; set; }
+
+        public int PedidoId { get; set; }
+        public int ClienteID { get; set; }
+        public virtual Cliente Cliente { get; set; }
+        public int ProdutoID { get; set; }
+        public virtual Produto Produto { get; set; }
         public DateTime DataCompra { get; set; }
         public bool Finalizado { get; set; }
         [StringLength(200)]
         public string Descricao { get; set; }
-        public Produto Prod { get; set; }
     }
 }

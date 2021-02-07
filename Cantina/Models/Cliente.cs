@@ -12,6 +12,8 @@ namespace Cantina
         public int Id { get; set; }
         [StringLength(100)]
         public string Nome { get; set; }
+        [StringLength(100)]
+        public string Endereco { get; set; }
         public override string ToString() => $"{Nome}".Trim();
     }
 }

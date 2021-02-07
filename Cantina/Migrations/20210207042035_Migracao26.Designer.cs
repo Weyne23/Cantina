@@ -11,9 +11,10 @@ using WF_Aluno_EFCore.Models;
 namespace Cantina.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210207042035_Migracao26")]
+    partial class Migracao26
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,10 +39,10 @@ namespace Cantina.Migrations
 
             modelBuilder.Entity("Cantina.Pedido", b =>
                 {
-                    b.Property<int>("PedidoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("ClienteID");
+                    b.Property<int?>("ClienteId");
 
                     b.Property<DateTime>("DataCompra");
 
@@ -50,20 +51,16 @@ namespace Cantina.Migrations
 
                     b.Property<bool>("Finalizado");
 
-                    b.Property<int>("ProdutoID");
+                    b.HasKey("Id");
 
-                    b.HasKey("PedidoId");
-
-                    b.HasIndex("ClienteID");
-
-                    b.HasIndex("ProdutoID");
+                    b.HasIndex("ClienteId");
 
                     b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("Cantina.Produto", b =>
                 {
-                    b.Property<int>("ProdutoId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Descricao")
@@ -72,9 +69,13 @@ namespace Cantina.Migrations
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
+                    b.Property<int?>("PedidoId");
+
                     b.Property<double>("Valor");
 
-                    b.HasKey("ProdutoId");
+                    b.HasKey("Id");
+
+                    b.HasIndex("PedidoId");
 
                     b.ToTable("Produtos");
                 });
@@ -83,13 +84,14 @@ namespace Cantina.Migrations
                 {
                     b.HasOne("Cantina.Cliente", "Cliente")
                         .WithMany()
-                        .HasForeignKey("ClienteID")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ClienteId");
+                });
 
-                    b.HasOne("Cantina.Produto", "Produto")
-                        .WithMany("Pedidos")
-                        .HasForeignKey("ProdutoID")
-                        .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity("Cantina.Produto", b =>
+                {
+                    b.HasOne("Cantina.Pedido")
+                        .WithMany("Produto")
+                        .HasForeignKey("PedidoId");
                 });
 #pragma warning restore 612, 618
         }
