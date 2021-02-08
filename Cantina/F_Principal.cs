@@ -79,7 +79,7 @@ namespace Cantina
                             if (p.PedidoId == Convert.ToInt32(lv_pedidos.SelectedItems[0].SubItems[0].Text))
                             {
                                 ctx.Remove(p);
-                            }
+;                           }
                         }
                         ctx.SaveChanges();
                         exibirPedidos();

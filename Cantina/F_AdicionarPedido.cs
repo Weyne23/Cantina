@@ -23,11 +23,10 @@ namespace Cantina
 
         private void limparTela()
         {
-            tb_nomeCliente.Clear();
             tb_endereco.Clear();
             lv_itensPedido.Items.Clear();
             tb_observacoes.Clear();
-            tb_nomeCliente.Focus();
+            cb_nomeCliente.Focus();
         }
         private void ExibirProdutos()
         {
@@ -79,14 +78,10 @@ namespace Cantina
         {
             using (var ctx = new ApplicationDBContext())
             {
-                var cliente2 = ctx.Clientes.ToList();
-                foreach (var cli in cliente2)
+                if (cb_nomeCliente.Text == "")
                 {
-                    if (cli.Nome == tb_nomeCliente.Text)
-                    {
-                        MessageBox.Show("Nome ja cadastrado!", "Erro");
-                        return;
-                    }
+                    MessageBox.Show("Nome não selecionado!");
+                    return;
                 }
                 Pedido pedido = new Pedido();
                 Cliente cliente = new Cliente();
@@ -97,7 +92,7 @@ namespace Cantina
                 double valor = 0;
                 produtos = ctx.Produtos.ToList();
                 cliente.Endereco = tb_endereco.Text;
-                cliente.Nome = tb_nomeCliente.Text;
+                cliente.Nome = cb_nomeCliente.Text;
                 pedido.Cliente = cliente;
                 pedido.Descricao = tb_observacoes.Text;
                 pedido.DataCompra = DateTime.Now;
@@ -153,6 +148,18 @@ namespace Cantina
         private void F_AdicionarPedido_FormClosed(object sender, FormClosedEventArgs e)
         {
             f_Cantina.exibirPedidos();
+        }
+
+        private void F_AdicionarPedido_Load(object sender, EventArgs e)
+        {
+            List<Cliente> cliente;
+
+            using (var ctx = new ApplicationDBContext())
+            {
+                cliente = ctx.Clientes.ToList();
+            }
+            foreach (var c in cliente)
+                cb_nomeCliente.Items.Add(c.Nome);
         }
     }
 }
