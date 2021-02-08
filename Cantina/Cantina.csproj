@@ -171,6 +171,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="F_DetalhesDoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_DetalhesDoPedido.Designer.cs">
+      <DependentUpon>F_DetalhesDoPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_TelaImpressao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,142 @@
     <Compile Include="Migrations\20210206150434_MigracaoInicial.cs" />
     <Compile Include="Migrations\20210206150434_MigracaoInicial.designer.cs">
       <DependentUpon>20210206150434_MigracaoInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206181248_MigracaoTeste.cs" />
+    <Compile Include="Migrations\20210206181248_MigracaoTeste.designer.cs">
+      <DependentUpon>20210206181248_MigracaoTeste.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206182545_Migracao3.cs" />
+    <Compile Include="Migrations\20210206182545_Migracao3.designer.cs">
+      <DependentUpon>20210206182545_Migracao3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206183123_Migracao4.cs" />
+    <Compile Include="Migrations\20210206183123_Migracao4.designer.cs">
+      <DependentUpon>20210206183123_Migracao4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206183348_Migracao5.cs" />
+    <Compile Include="Migrations\20210206183348_Migracao5.designer.cs">
+      <DependentUpon>20210206183348_Migracao5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206185734_Migracao6.cs" />
+    <Compile Include="Migrations\20210206185734_Migracao6.designer.cs">
+      <DependentUpon>20210206185734_Migracao6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206190908_Migracao7.cs" />
+    <Compile Include="Migrations\20210206190908_Migracao7.designer.cs">
+      <DependentUpon>20210206190908_Migracao7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206193214_Migracao8.cs" />
+    <Compile Include="Migrations\20210206193214_Migracao8.designer.cs">
+      <DependentUpon>20210206193214_Migracao8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206193554_Migracao9.cs" />
+    <Compile Include="Migrations\20210206193554_Migracao9.designer.cs">
+      <DependentUpon>20210206193554_Migracao9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206194138_Migracao10.cs" />
+    <Compile Include="Migrations\20210206194138_Migracao10.designer.cs">
+      <DependentUpon>20210206194138_Migracao10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206194844_Migracao11.cs" />
+    <Compile Include="Migrations\20210206194844_Migracao11.designer.cs">
+      <DependentUpon>20210206194844_Migracao11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206201354_Migracao12.cs" />
+    <Compile Include="Migrations\20210206201354_Migracao12.designer.cs">
+      <DependentUpon>20210206201354_Migracao12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206201410_Migracao13.cs" />
+    <Compile Include="Migrations\20210206201410_Migracao13.designer.cs">
+      <DependentUpon>20210206201410_Migracao13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206205143_Migracao14.cs" />
+    <Compile Include="Migrations\20210206205143_Migracao14.designer.cs">
+      <DependentUpon>20210206205143_Migracao14.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206205242_Migracao15.cs" />
+    <Compile Include="Migrations\20210206205242_Migracao15.designer.cs">
+      <DependentUpon>20210206205242_Migracao15.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206210729_Migracao16.cs" />
+    <Compile Include="Migrations\20210206210729_Migracao16.designer.cs">
+      <DependentUpon>20210206210729_Migracao16.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206211247_Migracao17.cs" />
+    <Compile Include="Migrations\20210206211247_Migracao17.designer.cs">
+      <DependentUpon>20210206211247_Migracao17.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206215806_Migracao18.cs" />
+    <Compile Include="Migrations\20210206215806_Migracao18.designer.cs">
+      <DependentUpon>20210206215806_Migracao18.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206220914_Migracao19.cs" />
+    <Compile Include="Migrations\20210206220914_Migracao19.designer.cs">
+      <DependentUpon>20210206220914_Migracao19.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206220946_Migracao20.cs" />
+    <Compile Include="Migrations\20210206220946_Migracao20.designer.cs">
+      <DependentUpon>20210206220946_Migracao20.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206223456_Migracao21.cs" />
+    <Compile Include="Migrations\20210206223456_Migracao21.designer.cs">
+      <DependentUpon>20210206223456_Migracao21.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210206230357_Migracao22.cs" />
+    <Compile Include="Migrations\20210206230357_Migracao22.designer.cs">
+      <DependentUpon>20210206230357_Migracao22.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207025557_Migracao23.cs" />
+    <Compile Include="Migrations\20210207025557_Migracao23.designer.cs">
+      <DependentUpon>20210207025557_Migracao23.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207041351_Migracao24.cs" />
+    <Compile Include="Migrations\20210207041351_Migracao24.designer.cs">
+      <DependentUpon>20210207041351_Migracao24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207041608_Migracao25.cs" />
+    <Compile Include="Migrations\20210207041608_Migracao25.designer.cs">
+      <DependentUpon>20210207041608_Migracao25.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207042035_Migracao26.cs" />
+    <Compile Include="Migrations\20210207042035_Migracao26.designer.cs">
+      <DependentUpon>20210207042035_Migracao26.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207043323_Migracao27.cs" />
+    <Compile Include="Migrations\20210207043323_Migracao27.designer.cs">
+      <DependentUpon>20210207043323_Migracao27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207050101_Migracao28.cs" />
+    <Compile Include="Migrations\20210207050101_Migracao28.designer.cs">
+      <DependentUpon>20210207050101_Migracao28.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207124935_Migracao29.cs" />
+    <Compile Include="Migrations\20210207124935_Migracao29.designer.cs">
+      <DependentUpon>20210207124935_Migracao29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207134158_Migracao31.cs" />
+    <Compile Include="Migrations\20210207134158_Migracao31.designer.cs">
+      <DependentUpon>20210207134158_Migracao31.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207135158_Migracao32.cs" />
+    <Compile Include="Migrations\20210207135158_Migracao32.designer.cs">
+      <DependentUpon>20210207135158_Migracao32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207152617_Migracao33.cs" />
+    <Compile Include="Migrations\20210207152617_Migracao33.designer.cs">
+      <DependentUpon>20210207152617_Migracao33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207153018_Migracao34.cs" />
+    <Compile Include="Migrations\20210207153018_Migracao34.designer.cs">
+      <DependentUpon>20210207153018_Migracao34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207165502_Migracao35.cs" />
+    <Compile Include="Migrations\20210207165502_Migracao35.designer.cs">
+      <DependentUpon>20210207165502_Migracao35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20210207224758_Migracao36.cs" />
+    <Compile Include="Migrations\20210207224758_Migracao36.designer.cs">
+      <DependentUpon>20210207224758_Migracao36.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\ApplicationDBContextModelSnapshot.cs" />
     <Compile Include="Models\ApplicationDBContext.cs" />
@@ -202,6 +344,7 @@
     <Compile Include="F_Produtos.Designer.cs">
       <DependentUpon>F_Produtos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemPedido.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Program.cs" />
@@ -209,6 +352,9 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="F_AdicionarPedido.resx">
       <DependentUpon>F_AdicionarPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_DetalhesDoPedido.resx">
+      <DependentUpon>F_DetalhesDoPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="F_Principal.resx">
       <DependentUpon>F_Principal.cs</DependentUpon>
@@ -229,7 +375,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,6 +409,10 @@
     <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

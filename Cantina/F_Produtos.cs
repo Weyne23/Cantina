@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WF_Aluno_EFCore.Models;
 
 namespace Cantina
 {
@@ -17,9 +18,86 @@ namespace Cantina
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_adicionar_Click(object sender, EventArgs e)
         {
-            Produto produtos = new Produto(tb_nomeProduto.Text, nup_valor.DecimalPlaces);
+            if (tb_descricao.Text == "" || tb_nomeProduto.Text == "")
+            {
+                MessageBox.Show("Nenhum item selecionado!", "Erro");
+                return;
+            }
+            else
+            {
+                using (var context = new ApplicationDBContext())
+                {
+                    var produto = context.Produtos;
+                    foreach (var p in produto)
+                    {
+                        if (p.Nome.ToLower() == tb_nomeProduto.Text.ToLower())
+                        {
+                            MessageBox.Show("Produto Já Adicionado!", "Adicionar");
+                            return;
+                        }
+                    }
+                    Produto prod = new Produto();
+                    prod.Nome = tb_nomeProduto.Text;
+                    prod.Valor = Convert.ToDouble(nud_valor.Value);
+                    prod.Descricao = tb_descricao.Text;
+                    MessageBox.Show("Produto Adicionado.", "Adicionar");
+                    context.Add(prod);
+                    context.SaveChanges();
+                    lv_quentinhas.Items.Add(prod.Nome).SubItems.Add(prod.Valor.ToString("C2"));
+                }
+            }
+
+        }
+
+        private void F_Produtos_Load(object sender, EventArgs e)
+        {
+            Carregar_Quentinhas();
+        }
+
+        private void Carregar_Quentinhas()
+        {
+            using (var ctx = new ApplicationDBContext())
+            {
+                var quentinhas = ctx.Produtos.ToList();
+
+                foreach (var x in quentinhas)
+                    lv_quentinhas.Items.Add(x.Nome).SubItems.Add(x.Valor.ToString("C2"));
+            }
+        }
+
+        private void btn_remover_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var resultado = MessageBox.Show("Deseja Remover esse produto do pedido?", "Excluir", MessageBoxButtons.YesNo);
+                if (resultado == DialogResult.Yes)
+                {
+                    using (var ctx = new ApplicationDBContext())
+                    {
+                        var quentinhas = ctx.Produtos.ToList();
+
+                        foreach (var x in quentinhas)
+                        {
+                            if (x.Nome == lv_quentinhas.SelectedItems[0].Text)
+                            {
+                                ctx.Remove(x);
+                                ctx.SaveChanges();
+                                MessageBox.Show("Quentinha foi excluida!", "Excluido");
+                                lv_quentinhas.Items.Clear();
+                                Carregar_Quentinhas();
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Para excluir escolha uma das opções na lista de pedidos e clique em excluir!", "Erro");
+                return;
+            }
 
         }
     }

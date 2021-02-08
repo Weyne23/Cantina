@@ -9,14 +9,13 @@ namespace Cantina
 {
     public class Produto
     {
-        public Produto(string nome, Decimal valor)
-        {
-            Nome = nome;
-            Valor = valor;
-        }
-        public int Id { get; set; }
+        public int ProdutoId { get; set; }
         [StringLength(100)]
         public string Nome { get; set; }
-        public Decimal Valor { get; set; }
+        [StringLength(200)]
+        public string Descricao { get; set; }
+        public double Valor { get; set; }
+        public virtual List<ItemPedido> ItensPedido { get; set; }
+
     }
 }

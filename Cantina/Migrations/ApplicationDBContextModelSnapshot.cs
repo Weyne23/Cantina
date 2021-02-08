@@ -25,61 +25,101 @@ namespace Cantina.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Endereco")
+                        .HasMaxLength(100);
+
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PedId");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("PedId")
-                        .IsUnique()
-                        .HasFilter("[PedId] IS NOT NULL");
 
                     b.ToTable("Clientes");
                 });
 
-            modelBuilder.Entity("Cantina.Pedido", b =>
+            modelBuilder.Entity("Cantina.ItemPedido", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ItemPedidoId")
                         .ValueGeneratedOnAdd();
 
-                    b.HasKey("Id");
+                    b.Property<int>("PedidoId");
+
+                    b.Property<int>("ProdutoID");
+
+                    b.Property<int>("Quantidade");
+
+                    b.Property<double>("valorUnitario");
+
+                    b.HasKey("ItemPedidoId");
+
+                    b.HasIndex("PedidoId");
+
+                    b.HasIndex("ProdutoID");
+
+                    b.ToTable("ItemPedidos");
+                });
+
+            modelBuilder.Entity("Cantina.Pedido", b =>
+                {
+                    b.Property<int>("PedidoId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ClienteID");
+
+                    b.Property<DateTime>("DataCompra");
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(200);
+
+                    b.Property<bool>("Finalizado");
+
+                    b.Property<double>("ValorTotal");
+
+                    b.Property<bool>("Viagem");
+
+                    b.HasKey("PedidoId");
+
+                    b.HasIndex("ClienteID");
 
                     b.ToTable("Pedidos");
                 });
 
             modelBuilder.Entity("Cantina.Produto", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("ProdutoId")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Descricao")
+                        .HasMaxLength(200);
 
                     b.Property<string>("Nome")
                         .HasMaxLength(100);
 
-                    b.Property<int?>("PedidoId");
+                    b.Property<double>("Valor");
 
-                    b.Property<decimal>("Valor");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PedidoId");
+                    b.HasKey("ProdutoId");
 
                     b.ToTable("Produtos");
                 });
 
-            modelBuilder.Entity("Cantina.Cliente", b =>
+            modelBuilder.Entity("Cantina.ItemPedido", b =>
                 {
-                    b.HasOne("Cantina.Pedido", "Ped")
-                        .WithOne("Cli")
-                        .HasForeignKey("Cantina.Cliente", "PedId");
+                    b.HasOne("Cantina.Pedido", "Pedido")
+                        .WithMany("ItensPedido")
+                        .HasForeignKey("PedidoId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Cantina.Produto", "Produto")
+                        .WithMany("ItensPedido")
+                        .HasForeignKey("ProdutoID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("Cantina.Produto", b =>
+            modelBuilder.Entity("Cantina.Pedido", b =>
                 {
-                    b.HasOne("Cantina.Pedido")
-                        .WithMany("Prod")
-                        .HasForeignKey("PedidoId");
+                    b.HasOne("Cantina.Cliente", "Cliente")
+                        .WithMany()
+                        .HasForeignKey("ClienteID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
