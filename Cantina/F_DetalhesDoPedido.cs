@@ -24,7 +24,7 @@ namespace Cantina
         //Função não terminada
         public void carregarTela()
         {
-            lb_numPedido.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text;
+            /** lb_numPedido.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text;
             using (var ctx = new ApplicationDBContext())
             {
                 var pedidos = ctx.Pedidos.Where(p => p.ClienteID == Convert.ToInt32(f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text));
@@ -37,7 +37,7 @@ namespace Cantina
                     lb_valorTotal.Text = p.ValorTotal.ToString("C2");
 
                 }
-            }
+            **/
         }
     }
 }
