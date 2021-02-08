@@ -262,6 +262,7 @@ namespace Cantina
             this.Name = "F_AdicionarPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar Pedido";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.F_AdicionarPedido_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);

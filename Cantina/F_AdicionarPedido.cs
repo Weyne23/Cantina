@@ -13,10 +13,11 @@ namespace Cantina
 {
     public partial class F_AdicionarPedido : Form
     {
-        public DataTable dt = new DataTable();
+        F_Cantina f_Cantina = new F_Cantina();
         public F_AdicionarPedido()
         {
             InitializeComponent();
+            f_Cantina = Application.OpenForms["F_Cantina"] as F_Cantina;
             ExibirProdutos();
         }
 
@@ -60,7 +61,7 @@ namespace Cantina
 
         private void btn_adicionar_Click(object sender, EventArgs e)
         {
-            if(lb_quentinhas.SelectedItem == null)
+            if (lb_quentinhas.SelectedItem == null)
             {
                 MessageBox.Show("Nenhum item selecionado!", "Erro");
                 return;
@@ -130,7 +131,7 @@ namespace Cantina
                 }
                 if (y >= 5)
                 {
-                    valor -= valor * 0.215;
+                    valor -= valor * 0.0215;
                 }
                 pedido.ValorTotal = valor;
                 var resultado = MessageBox.Show("Desejá finalizar o pedido? total = " + valor, "Mensagem", MessageBoxButtons.YesNo);
@@ -145,46 +146,13 @@ namespace Cantina
                 {
                     return;
                 }
-                
+
             }
+        }
+
+        private void F_AdicionarPedido_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            f_Cantina.exibirPedidos();
         }
     }
 }
-
-/*
- * x++;
-                            y += Convert.ToInt32(lv_itensPedido.Items[x].SubItems[1]);
-                            valor = prod.Valor * Convert.ToInt32(lv_itensPedido.Items[x].SubItems[1]);
-                            itemPedido.Quantidade = Convert.ToInt32(lv_itensPedido.Items[x].SubItems[1]);
-                            itemPedido.valorUnitario = prod.Valor;
-
-
- for (int i = 0; i < lv_itensPedido.Items.Count; i++)
-                {
-                    foreach (Produto prod in produtos)
-                    {
-                        if (prod.Nome == lv_itensPedido.Items[x].Text)
-                        {
-                            itemPedido.Produto = prod;
-                            itemPedido.Quantidade = Convert.ToInt32(lv_itensPedido.Items[x].SubItems[1]);
-                            itemPedido.valorUnitario = prod.Valor;
-                            itemPedido.Pedido
-                            itemPedido.
-                            y = y + prod
-                        }
-                        itemPedidos.Add(itemPedido);
-                    }
-                    if (y >= 5)
-                    {
-                        valor -= valor * 0.215;
-                    }
-                    pedido.ValorTotal = valor;
-                }
-                itemPedido.Quantidade;
-                pedido.ItensPedido.Add();
-
-                aluno.Nome = txtNome.Text;
-                aluno.Email = txtEmail.Text;
-                context.Add(aluno);
-                context.SaveChanges();
- */

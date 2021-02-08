@@ -175,5 +175,4 @@ C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.csproj
 C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.csproj.CopyComplete
 C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.exe
 C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.pdb
-C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.Teste.resources
 C:\Users\augus\OneDrive\Documentos\Projetos git\Cantina\obj\Debug\Cantina.F_DetalhesDoPedido.resources

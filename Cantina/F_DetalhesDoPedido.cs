@@ -21,6 +21,7 @@ namespace Cantina
             carregarTela();
         }
 
+        //Função não terminada
         public void carregarTela()
         {
             lb_numPedido.Text = f_Cantina.lv_pedidos.SelectedItems[0].SubItems[0].Text;
@@ -34,26 +35,9 @@ namespace Cantina
                     tb_horario.Text = p.DataCompra.ToString();
                     tb_observacoes.Text = p.Descricao;
                     lb_valorTotal.Text = p.ValorTotal.ToString("C2");
-                    //tb_endereco.Text = p.Cliente.Endereco;
+
                 }
-                //tb_observacoes.Text = pedido.Descricao;
-                
-                //tb_endereco.Text = pedido.Cliente.Endereco;
-                //tb_observacoes.Text = pedido.ItensPedido[0].Produto.Nome;
             }
         }
     }
 }
-/*
- * var pedidos = (from p in ctx.Pedidos
-                               join c in ctx.Clientes on p.ClienteID equals c.Id
-                               join prod in ctx.Produtos on c. equals prod.ProdutoId
-                               select new
-                               {
-                                   nomeCliente = c.Nome,
-                                   data = p.DataCompra,
-                                   endereco = c.Endereco,
-                                   observacoes = p.Descricao,
-                                   valorTotal = p.ValorTotal,
-                               });
-*/

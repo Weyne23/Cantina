@@ -30,17 +30,17 @@ namespace Cantina
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
             "1",
             "Augusto Cesar",
             "Não",
             "10.00"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "2",
             "Andrey Gomes",
             "Sim",
             "20,00"}, -1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem(new string[] {
             "3",
             "Caio Andrade",
             "Não",
@@ -61,6 +61,7 @@ namespace Cantina
             this.btn_entregue = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.btn_detalhes = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,11 +107,11 @@ namespace Cantina
             this.lv_pedidos.FullRowSelect = true;
             this.lv_pedidos.GridLines = true;
             this.lv_pedidos.HideSelection = false;
-            listViewItem1.StateImageIndex = 0;
+            listViewItem4.StateImageIndex = 0;
             this.lv_pedidos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2,
-            listViewItem3});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.lv_pedidos.Location = new System.Drawing.Point(12, 75);
             this.lv_pedidos.MultiSelect = false;
             this.lv_pedidos.Name = "lv_pedidos";
@@ -144,7 +145,7 @@ namespace Cantina
             // 
             // btn_adicionarPedido
             // 
-            this.btn_adicionarPedido.Location = new System.Drawing.Point(12, 384);
+            this.btn_adicionarPedido.Location = new System.Drawing.Point(12, 397);
             this.btn_adicionarPedido.Name = "btn_adicionarPedido";
             this.btn_adicionarPedido.Size = new System.Drawing.Size(334, 23);
             this.btn_adicionarPedido.TabIndex = 2;
@@ -164,7 +165,7 @@ namespace Cantina
             // 
             // btn_rev
             // 
-            this.btn_rev.Location = new System.Drawing.Point(352, 384);
+            this.btn_rev.Location = new System.Drawing.Point(352, 397);
             this.btn_rev.Name = "btn_rev";
             this.btn_rev.Size = new System.Drawing.Size(309, 23);
             this.btn_rev.TabIndex = 9;
@@ -174,7 +175,7 @@ namespace Cantina
             // 
             // btn_entregue
             // 
-            this.btn_entregue.Location = new System.Drawing.Point(12, 413);
+            this.btn_entregue.Location = new System.Drawing.Point(12, 426);
             this.btn_entregue.Name = "btn_entregue";
             this.btn_entregue.Size = new System.Drawing.Size(334, 23);
             this.btn_entregue.TabIndex = 11;
@@ -190,7 +191,7 @@ namespace Cantina
             // 
             // btn_detalhes
             // 
-            this.btn_detalhes.Location = new System.Drawing.Point(352, 413);
+            this.btn_detalhes.Location = new System.Drawing.Point(352, 426);
             this.btn_detalhes.Name = "btn_detalhes";
             this.btn_detalhes.Size = new System.Drawing.Size(309, 23);
             this.btn_detalhes.TabIndex = 12;
@@ -198,11 +199,22 @@ namespace Cantina
             this.btn_detalhes.UseVisualStyleBackColor = true;
             this.btn_detalhes.Click += new System.EventHandler(this.btn_detalhes_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 381);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(620, 13);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "*Para remover, olhar os detalhes ou colocar o pedido como entregue selecione um d" +
+    "os pedidos na lista acima e execute sua ação";
+            // 
             // F_Cantina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 452);
+            this.ClientSize = new System.Drawing.Size(678, 458);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_detalhes);
             this.Controls.Add(this.btn_entregue);
             this.Controls.Add(this.btn_rev);
@@ -241,6 +253,7 @@ namespace Cantina
         private System.Windows.Forms.Button btn_detalhes;
         private System.Windows.Forms.ColumnHeader cl_id;
         public System.Windows.Forms.ListView lv_pedidos;
+        private System.Windows.Forms.Label label2;
     }
 }
 
